@@ -26,6 +26,9 @@ app.use(bodyparser.json({ limit: '50mb', extended: true }));
 // app.use(bodyParser);
 app.use(nocache());
 app.use(express.static(__dirname + '/dist/quotationTool/'));
+app.get('/', (req, res) => {
+  res.status(200).json({error: false, message:'checkers'})
+})
 require('./startup/routes')(app);
 require('./startup/db')();
 
